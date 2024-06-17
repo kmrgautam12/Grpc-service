@@ -1,0 +1,22 @@
+syntax= "proto3";
+//Syntax mean it will use protocol buffer -3
+
+package ConsumerInfo;
+// package name 
+
+option go_package = "/";
+
+// go_package means where protofile will be generated
+message PersonRecordRequest{
+    string name =1;
+    int32 id =2;
+    string email =3;
+}
+message PersonRecordResponse{
+    string name=1;
+    string id=2;
+    string email=3;
+}
+service GetRecord{
+    rpc PersonRecord (PersonRecordRequest) returns (PersonRecordResponse);
+}
